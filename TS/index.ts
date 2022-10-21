@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000;
 //     throw new Error()
 //   }
 // }
+
 app.get("/ping", (req: Request, res: Response, next: Function) => {
   res.json(req.headers);
   let test = false
@@ -20,6 +21,7 @@ app.get("/ping", (req: Request, res: Response, next: Function) => {
   //   next(e);
   // }
 });
+
 app.get('*', (req: Request, res: Response) => {
   res.status(404).json({ code: 404 });
 });

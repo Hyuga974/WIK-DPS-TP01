@@ -59,9 +59,9 @@ Essayez maintenant avec http://localhost:8080/ping
   - [X] sur <b>/ping</b>
   - [X] format <b>JSON</b>
 - [X] le serveur doit écouter sur un port configurable via la variable d'environnement PING_LISTEN_PORT
-- [ ] Réponse vide avec erreur:
+- [X] Réponse vide avec erreur:
   - [X] code 404 si autre que GET /ping
-  - [ ] code 500 si erreur inconnue
+  - [X] code 500 si erreur inconnue
 - [X] Réalisation d'un README avec une doc sur le lancement
 
 ### 2. Installation et setup
