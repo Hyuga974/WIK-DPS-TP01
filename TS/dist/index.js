@@ -5,10 +5,25 @@ const port = process.env.PORT || 3000;
 // app.get('/', (req, res) => {
 //     res.send("HELLO from express and typescript")
 // })
-app.get("/ping", (req, res) => {
-    res.send(req.headers);
+function CrashTest(test) {
+    if (test != true) {
+        throw new Error();
+    }
+}
+app.get("/ping", (req, res, next) => {
+    res.json(req.headers);
+    let test = false;
+    // try {
+    //   CrashTest(test);
+    // } catch (e) {
+    //   next(e);
+    // }
 });
 app.get('*', (req, res) => {
-    res.send(404);
+    res.status(404).json({ code: 404 });
+});
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ code: 500 });
 });
 app.listen(port, () => console.log(`App listen on port ${port}`));
